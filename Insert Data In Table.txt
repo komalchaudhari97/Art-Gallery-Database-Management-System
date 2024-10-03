@@ -1,0 +1,60 @@
+USE [ZID]
+/********************************************************************************/			
+
+/*	INSERT data for ARTIST														*/
+
+/*	Set IDENTITY_INSERT to ON for ARTIST										*/
+/*	reset it to OFF after ARTIST data is inserted.								*/
+
+SET IDENTITY_INSERT dbo.ARTIST ON
+
+INSERT INTO ARTIST
+	(ArtistID, LastName, FirstName, Nationality, DateOfBirth, DateDeceased)
+	VALUES (4, 'Matisse', 'Henri', 'French', 1869, 1954);
+
+SET IDENTITY_INSERT dbo.ARTIST OFF
+/********************************************************************************/			
+
+/*	INSERT data for WORK														*/
+
+/*	Set IDENTITY_INSERT to ON for WORK. 										*/
+/*	reset it to OFF after WORK data is inserted.								*/
+
+SET IDENTITY_INSERT dbo.WORK ON
+
+INSERT INTO WORK (WorkID, Title, Copy, Medium, Description, ArtistID)
+	VALUES (553, 'The Dance', '734/1000', 'High Quality Limited Print', 'An Impressionist masterpiece', 4);
+
+SET IDENTITY_INSERT dbo.WORK OFF
+
+
+/********************************************************************************/			
+
+/*	INSERT data for TRANS														*/
+
+/*	Set IDENTITY_INSERT to ON for TRANS. 										*/
+/*	reset it to OFF after TRANS data is inserted.								*/
+
+SET IDENTITY_INSERT dbo.TRANS ON
+
+INSERT INTO TRANS (TransactionID, DateAcquired, AcquisitionPrice,
+	AskingPrice, DateSold, SalesPrice, CustomerID, WorkID)
+ 	VALUES (
+	127, '11/21/2018', 125.00, 500.00, null, null, null, 553);
+
+
+SET IDENTITY_INSERT dbo.TRANS OFF
+
+/********************************************************************************/
+
+--SELECT * FROM CUSTOMER;
+
+--SELECT * FROM ARTIST;
+
+--SELECT * FROM CUSTOMER_ARTIST_INT;
+
+--SELECT * FROM WORK;
+
+--SELECT * FROM TRANS;
+
+/********************************************************************************/

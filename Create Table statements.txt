@@ -1,0 +1,86 @@
+
+/*******************************************************************************/
+CREATE TABLE AuctionProcess (
+	AuctionID  				Int 			NOT NULL IDENTITY(9000,1),
+	EmployeeID 				Int 			NOT NULL,
+	CustomerID 				Int			NOT NULL,
+	WorkID 				Int 		      NOT NULL,
+	BidPrice 				Int			NOT NULL,
+	CONSTRAINT 		AuctionIDPk				PRIMARY KEY(Auction ID),
+	CONSTRAINT 		EmployeeIDFK			FOREIGN KEY(EmployeeID)
+									REFERENCES Employee(EmployeeID)
+ 									ON UPDATE NO ACTION
+									ON DELETE NO ACTION,
+	CONSTRAINT 		CustomerIDFK			FOREIGN KEY(CustomerID)
+									REFERENCES Customer(CustomerID)
+ 									ON UPDATE NO ACTION
+									ON DELETE NO ACTION,
+	CONSTRAINT 		WorkIDFK				FOREIGN KEY(WorkID)
+									REFERENCES Work(WorkID)
+ 									ON UPDATE NO ACTION
+									ON DELETE NO ACTION,
+	);
+
+/*******************************************************************************/
+
+INSERT INTO AuctionProcess
+	(AuctionID, EmployeeID, CustomerID, WorkID, BidPrice)
+	VALUES (9000, 5000, 1000', 500, 1300),
+		(9001, 5003, 1001, 501, 1250),
+		(9002, 5003, 1002, 502, 2350),
+		(9003, 5002, 1003, 503, 1800),
+		(9004, 5003, 1004, 504, 2050),
+		(9005, 5004, 1005, 505, 1900),
+		(9006, 5001, 1006, 506, 1500),
+		(9007, 5002, 1007, 507, 2500),
+		(9008, 5004, 1008, 508, 3500),
+		(9009, 5005, 1009, 509, 1500),
+		(9010, 5001, 1010, 510, 2700),
+		(9011, 5003, 1011, 511, 8900),
+		(9012, 5001, 1012, 512, 3700),
+		(9013, 5002, 1013, 513, 3000),
+		(9014, 5004, 1014, 514, 4500),
+		(9015, 5001, 1015, 515, 7800),
+		(9016, 5005, 1016, 516, 1250),
+		(9017, 5004, 1017, 517, 7800),
+		(9018, 5004, 1018, 518, 9500),
+		(9019, 5005, 1019, 519, 3890);
+/*******************************************************************************/
+
+
+
+
+CREATE TABLE Employee (
+	EmployeeID 			Int 			NOT NULL IDENTITY(500,1),
+	EmpFirstName 			Char(25) 		NOT NULL,
+	EmpLastName 			Char(25) 		NOT NULL,	
+	EmpEmail		Varchar(100) 	NULL,
+	Designation				Char(25) 		NOT NULL,
+	EncryptedPassword	Varchar(50)		NULL,
+	Street 				Char(30) 		NULL,
+	City 				Char(35) 		NULL,
+	State 				Char(2) 		NULL,
+	ZIPorPostalCode		Char(9)			NULL, 
+	Country				Char(50)		NULL,
+	AreaCode 			Char(3)			NULL,
+	PhoneNumber 		Char(8) 			NULL,
+	CONSTRAINT 		EmployeePK			PRIMARY KEY(EmployeeID),
+	CONSTRAINT 		EmpEmailAK1			UNIQUE(EmpEmail)
+	);
+
+
+/*******************************************************************************/
+
+INSERT INTO EMPLOYEE
+	(EmployeeID, EmpFirstName, EmpLastName, EmpEmail, Designation, EncryptedPassword, Street, City, State, ZIPorPostalCode, Country, AreaCode, PhoneNumber)
+	VALUES (5000, 'Alex', 'Taylor', 'ataylor@gmail.com', 'Owner', '@#Taylor_1099!!', 'Lincoln', 'Dekalb', 'IL', 60115, 'USA', 779, 7788778902),
+		(5001, 'Pete', 'Smith', 'psmith@gmail.com', 'Salesperson', '@#Smith_7887!!', 'Adam's Way', 'Dekalb', 'IL', 60115, 'USA', 779, 6776554453),
+		(5002, 'James', 'Johnson', 'jjohnson@gmail.com', 'Salesperson', '@#Johnson_6788!!', 'Arcadia Dr', 'Dekalb', 'IL', 60115, 'USA', 779, 8778990983),
+		(5003, 'John', 'Williams', 'jwilliams@gmail.com', 'Salesperson', '@#Williams_8800!!', 'Regent Dr', 'Dekalb', 'IL', 60115, 'USA', 779, 8789990981),
+		(5004, 'Michael', 'Brown', 'mbrown@gmail.com', 'Worker', '@#Brown_8999!!', 'Scenic Rd', 'Dekalb', 'IL', 60115, 'USA', 779, 7889876789),
+		(5005, 'Charles', 'Williamson', 'cwilliamson@gmail.com', 'Worker', '@#Williamson_4233!!', 'Regal Dr', 'Dekalb', 'IL', 60115, 'USA', 779, 7888765667);
+
+
+
+/*******************************************************************************/
+
